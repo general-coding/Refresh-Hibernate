@@ -42,14 +42,6 @@
 		<!-- Names the annotated entity class -->
 		<mapping class="org.puneeth.hibernate.dto.UserDetails" />
 
-		<!-- List of XML mapping files -->
-		<mapping resource="hibernate-config/domain/Event.hbm.xml" />
-		<mapping resource="hibernate-config/domain/Person.hbm.xml" />
-		<mapping resource="hibernate-config/domain/PhoneNumber.hbm.xml" />
-		<mapping resource="hibernate-config/domain/Account.hbm.xml" />
-		<mapping resource="hibernate-config/domain/HolidayCalendar.hbm.xml" />
-		<mapping resource="hibernate-config/domain/Item.hbm.xml" />
-
 	</session-factory>
 
 </hibernate-configuration>
