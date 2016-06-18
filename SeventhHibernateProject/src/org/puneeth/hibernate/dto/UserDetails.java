@@ -13,7 +13,8 @@ import javax.persistence.TemporalType;
 @Entity
 @Table(name = "USER_DETAILS")
 public class UserDetails {
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue
 	private int userId;
 	private String userName;
 	@Temporal(TemporalType.DATE)
