@@ -4,6 +4,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -19,6 +20,7 @@ public class UserDetails {
 	@Temporal(TemporalType.DATE)
 	private Date joinedDate;
 	private String Address;
+	@Lob
 	private String description;
 
 	public int getUserId() {
