@@ -12,11 +12,17 @@ public class HibernateTest {
 
 	public static void main(String[] args) {
 		UserDetails user = new UserDetails();
-		Address addr = new Address();
-		addr.setStreet("Street Name");
-		addr.setCity("City Name");
+		
+		Address homeAddr = new Address();
+		homeAddr.setStreet("Home Street Name");
+		homeAddr.setCity("Home City Name");
+		
+		Address officeAddr = new Address();
+		officeAddr.setStreet("Office Street Name");
+		officeAddr.setCity("Office City Name");
+		
 		user.setUserName("First Person");
-		user.setAddress(addr);
+		user.setHomeAddress(homeAddr);
 		user.setJoinedDate(new Date());
 		user.setDescription("Description");
 
@@ -26,6 +32,8 @@ public class HibernateTest {
 		session.save(user);
 		session.getTransaction().commit();
 		session.close();
+		
+		System.exit(0);
 	}
 
 }

@@ -3,6 +3,7 @@ package org.puneeth.hibernate.dto;
 import java.util.Date;
 
 import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -24,7 +25,11 @@ public class UserDetails {
 	@Temporal(TemporalType.DATE)
 	private Date joinedDate;
 	@Embedded
-	@AttributeOverride(column = @Column(name = "HOME_STREET_NAME") , name = "steet")
+	@AttributeOverrides({ 
+		@AttributeOverride(column = @Column(name = "HOME_STREET_NAME") , name = "street"),
+		@AttributeOverride(column = @Column(name = "HOME_CITY_NAME") , name = "city"),
+		@AttributeOverride(column = @Column(name = "HOME_STATE_NAME") , name = "state"),
+		@AttributeOverride(column = @Column(name = "HOME_PIN_CODE") , name = "pincode") })
 	private Address homeAddress;
 	@Embedded
 	private Address officeAddress;
@@ -55,12 +60,20 @@ public class UserDetails {
 		this.joinedDate = joinedDate;
 	}
 
-	public Address getAddress() {
-		return address;
+	public Address getHomeAddress() {
+		return homeAddress;
 	}
 
-	public void setAddress(Address address) {
-		this.address = address;
+	public void setHomeAddress(Address homeAddress) {
+		this.homeAddress = homeAddress;
+	}
+
+	public Address getOfficeAddress() {
+		return officeAddress;
+	}
+
+	public void setOfficeAddress(Address officeAddress) {
+		this.officeAddress = officeAddress;
 	}
 
 	public String getDescription() {
