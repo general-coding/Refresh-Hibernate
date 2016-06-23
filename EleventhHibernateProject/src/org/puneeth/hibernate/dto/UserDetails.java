@@ -1,8 +1,9 @@
 package org.puneeth.hibernate.dto;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.Collection;
 
+import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,6 +12,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.CollectionId;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 @Entity
 @Table(name = "USER_DETAILS")
@@ -21,7 +26,9 @@ public class UserDetails {
 	private String userName;
 	@ElementCollection
 	@JoinTable(name = "USER_ADDRESS", joinColumns = @JoinColumn(name = "USER_ID") )
-	private Set<Address> listOfAddress = new HashSet<Address>();
+	@GenericGenerator(name = "hilo-gen", strategy = "seqhilo")
+	@CollectionId(columns = { @Column(name = "ADDRESS_ID") }, generator = "hilo-gen", type = @Type(type = "long") )
+	private Collection<Address> listOfAddress = new ArrayList<Address>();
 
 	public int getUserId() {
 		return userId;
@@ -39,11 +46,11 @@ public class UserDetails {
 		this.userName = userName;
 	}
 
-	public Set<Address> getListOfAddress() {
+	public Collection<Address> getListOfAddress() {
 		return listOfAddress;
 	}
 
-	public void setListOfAddress(Set<Address> listOfAddress) {
+	public void setListOfAddress(Collection<Address> listOfAddress) {
 		this.listOfAddress = listOfAddress;
 	}
 
