@@ -14,7 +14,7 @@ public class Vehicle {
 	@GeneratedValue
 	private int vehicleId;
 	private String vehicleName;
-	@ManyToMany
+	@ManyToMany(mappedBy="vehicle")
 	private Collection<UserDetails> userList = new ArrayList<UserDetails>();
 
 	public int getVehicleId() {
