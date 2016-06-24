@@ -36,7 +36,7 @@ public class HibernateTest {
 
 		session = sessionFactory.openSession();
 		user = session.get(UserDetails.class, 1);
-		user.getListOfAddress();
+		System.out.println(user.getListOfAddress().size());
 
 		System.exit(0);
 	}
