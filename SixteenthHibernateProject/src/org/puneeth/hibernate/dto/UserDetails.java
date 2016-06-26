@@ -3,11 +3,12 @@ package org.puneeth.hibernate.dto;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,7 +18,7 @@ public class UserDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 	private String userName;
-	@ManyToMany
+	@OneToMany(cascade=CascadeType.PERSIST)
 	private Collection<Vehicle> vehicle = new ArrayList<Vehicle>();
 
 	public int getUserId() {
