@@ -18,7 +18,7 @@ public class UserDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 	private String userName;
-	@OneToMany(cascade=CascadeType.PERSIST)
+	@OneToMany(cascade=CascadeType.ALL)
 	private Collection<Vehicle> vehicle = new ArrayList<Vehicle>();
 
 	public int getUserId() {
