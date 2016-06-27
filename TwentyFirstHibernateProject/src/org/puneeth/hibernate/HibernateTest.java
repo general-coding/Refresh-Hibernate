@@ -13,14 +13,20 @@ public class HibernateTest {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 
-		for (int i = 0; i < 10; i++) {
-			UserDetails user = new UserDetails();
-			user.setUserName("User " + i);
-			session.save(user);
-		}
+		// for (int i = 0; i < 10; i++) {
+		// UserDetails user = new UserDetails();
+		// user.setUserName("User " + i);
+		// session.save(user);
+		// }
+
+		UserDetails user = session.get(UserDetails.class, 1);
 
 		session.getTransaction().commit();
 		session.close();
+
+		System.out.println("Following are the details");
+		System.out.println(user.getUserId() + " " + user.getUserName());
+
 		System.exit(0);
 	}
 
