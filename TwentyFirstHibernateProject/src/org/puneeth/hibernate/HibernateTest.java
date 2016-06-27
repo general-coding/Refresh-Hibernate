@@ -19,14 +19,16 @@ public class HibernateTest {
 		// session.save(user);
 		// }
 
-		UserDetails user = session.get(UserDetails.class, 1);
-		session.delete(user);
+		UserDetails user = session.get(UserDetails.class, 2);
+//		session.delete(user);
+		user.setUserName("Updated this username");
+		session.update(user);
 
 		session.getTransaction().commit();
 		session.close();
 
-		System.out.println("Following are the details");
-		System.out.println(user.getUserId() + " " + user.getUserName());
+//		System.out.println("Following are the details");
+//		System.out.println(user.getUserId() + " " + user.getUserName());
 
 		System.exit(0);
 	}
