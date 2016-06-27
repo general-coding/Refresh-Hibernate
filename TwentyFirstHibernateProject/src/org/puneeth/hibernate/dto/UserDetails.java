@@ -18,8 +18,6 @@ public class UserDetails {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int userId;
 	private String userName;
-	@OneToMany(cascade=CascadeType.ALL)
-	private Collection<Vehicle> vehicle = new ArrayList<Vehicle>();
 
 	public int getUserId() {
 		return userId;
@@ -35,14 +33,6 @@ public class UserDetails {
 
 	public void setUserName(String userName) {
 		this.userName = userName;
-	}
-
-	public Collection<Vehicle> getVehicle() {
-		return vehicle;
-	}
-
-	public void setVehicle(Collection<Vehicle> vehicle) {
-		this.vehicle = vehicle;
 	}
 
 }
