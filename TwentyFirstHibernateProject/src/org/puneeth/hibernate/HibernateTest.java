@@ -20,6 +20,7 @@ public class HibernateTest {
 		// }
 
 		UserDetails user = session.get(UserDetails.class, 1);
+		session.delete(user);
 
 		session.getTransaction().commit();
 		session.close();
